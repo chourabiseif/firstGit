@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  
+  <title>objet</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+
+
+    <script >
+
+    var  user0  = { 
+    name: "hatem",
+    age : 50, 
+    adresse : {
+        zip: 6140,
+        rue :" ezzouhour ",
+        ville : "Tunis"
+                },
+    lienFb :  "/profile/64568867"
+                     };
+            
+    var  user1  = { 
+    name: "mohsen",
+    age : 53, 
+    adresse : {
+        zip: 1570,
+        rue :" abou elkacem chebbi ",
+        ville : "kairouan"
+                },
+    lienFb :  "/profile/44457787"
+                     };       
+    var  user2  = { 
+    name: "ahmed",
+    age : 36, 
+    adresse : {
+        zip: 8965,
+        rue :" elward ",
+        ville : "sousse"
+                },
+    lienFb :  "/profile/5596256"
+                     };  
+    var  user3  = { 
+    name: "amal",
+    age : 16, 
+    adresse : {
+        zip: 8555,
+        rue :" eltahrir ",
+        ville : "nabeul"
+                },
+    lienFb :  "/profile/57844556"
+                     };     
+    var users = [user0, user1, user2, user3];
+    localStorage.setItem('USERS', JSON.stringify(users));
+    
+    util = JSON.parse(localStorage.getItem('USERS'));
+    //console.log(util);
+    util.forEach(function(item, index, array) {
+    console.log("user"+index+":\nname: "+item.name+"\nage: "+item.age+"\nadresse:\n   zip: "+item.adresse.zip+"\n   rue: "+item.adresse.rue+"\n   ville: "+item.adresse.ville+"\nlienfb: "+item.lienFb);
+  });
+  //trouver un utlisateur selon son nom
+  var found = util.find(user => user.name =="ahmed");
+  //alert(found.name);
+  //modifier un utilisateur selon son nom
+  const indice = util.findIndex((element)=> element.name == "hatem");
+  alert(indice);
+  util[indice].name="mohamed";
+  localStorage.setItem('USERS', JSON.stringify(util));
+  //filtrage
+  util_filtré= util.filter(element=> (element.age > 18)&&(element.name=="mohamed")); 
+  console.log(util_filtré);
+  //find
+  userfound = util.find(element=> (element.age < 18)&&(element.name=="amal"));
+  console.log(userfound);
+  //ajout departement it pour tous les users
+  utilDEp=util.map(element => element.departement ="IT");
+  console.log(utilDEp);
+  localStorage.setItem('USERS', JSON.stringify(util));
+
+ 
+    </script>
+
+
+</head>
+<body>
+ 
+</body>
+</html>

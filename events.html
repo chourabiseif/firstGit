@@ -1,0 +1,26 @@
+<HTML>
+<HEAD><TITLE> onfocus***onchange***onblur***onkeyup</TITLE>
+<script language="javascript">
+function majuscule()
+{
+np=document.f1.znp.value;
+npmaj =np.toUpperCase();
+document.f1.znp.value=npmaj;
+}
+function affbarre()
+{ window.status='Saisissez votre nom et prénom'; }
+function longueur()
+{
+np=document.f1.znp.value;
+document.f1.nc.value=np.length;
+}
+</script>
+</HEAD>
+<BODY>
+<FORM name="f1">
+NOM ET PRENOM : <INPUT type="text" name="znp" OnFocus="affbarre()" onchange="majuscule()" onblur="affbarre('***')"
+onkeyup="longueur()">
+Nombre de caractères tapés :<INPUT type="text" name="nc" size="3" value="0">
+</FORM>
+</BODY>
+</HTML>
